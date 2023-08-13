@@ -9,7 +9,7 @@ from snake_block import SnakeBlock
 
 pygame.init()
 
-# total = 0
+total = 0
 labels = None
 table = None
 
@@ -108,7 +108,7 @@ def draw_block(color, row, column):
 
 
 def start_the_game():
-    # global total
+    global total
 
     def get_random_empty_block():
         x = random.randint(0, COUNT_BLOCKS - 1)
