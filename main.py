@@ -8,16 +8,16 @@ from snake_block import SnakeBlock
 
 
 pygame.init()
-bg_image = pygame.image.load("background.jpg")
 
+# total = 0
 labels = None
 table = None
-total = 0
-size = [SIZE_BLOCK * COUNT_BLOCKS + 2 * SIZE_BLOCK + MARGIN * COUNT_BLOCKS,
-        SIZE_BLOCK * COUNT_BLOCKS + 2 * SIZE_BLOCK + MARGIN * COUNT_BLOCKS + HEADER_MARGIN]
-print(size)
+
+icon_surface = pygame.image.load('snake.ico')
+pygame.display.set_icon(icon_surface)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Snake_v.0.1")
+pygame.display.set_caption("Snake")
+bg_image = pygame.image.load("background.jpg")
 timer = pygame.time.Clock()
 digital_font = pygame_menu.font.get_font(pygame_menu.font.FONT_DIGITAL, 28)
 
@@ -51,7 +51,6 @@ def remove_scores_table():
 
 def game_over_label():
     global labels
-    # global SOUND
 
     if labels is not None:
         for label in labels:
@@ -109,7 +108,7 @@ def draw_block(color, row, column):
 
 
 def start_the_game():
-    global total
+    # global total
 
     def get_random_empty_block():
         x = random.randint(0, COUNT_BLOCKS - 1)
@@ -233,7 +232,7 @@ while True:
     events = pygame.event.get()
     for event in events:
         if event.type == pygame.QUIT:
-            exit()
+            sys.exit()
 
     if menu.is_enabled():
         menu.update(events)
